@@ -21,16 +21,22 @@ class Employee
 end
 
 class Manager < Employee
+  attr_reader :employees
+  def initialize(input_options)
+    super
+    @employees = input_options[:employees]
+  end
+
   def send_email_report
     puts "Sending email..."
     # super cool email sending library...
     puts "Email sent!"
   end
 end
-# employee1 = Employee.new({last_name: "Wengrow", salary: 150000, active: true, first_name: "Jay"})
-# employee2 = Employee.new(first_name: "Dani", last_name: "Zaghian", salary: 40000, active: true)
-# employee1.send_email_report
+employee1 = Employee.new({last_name: "Wengrow", salary: 150000, active: true, first_name: "Jay"})
+employee2 = Employee.new(first_name: "Dani", last_name: "Zaghian", salary: 40000, active: true)
 
-manager = Manager.new(first_name: "James", last_name: "Odegaard", salary: 70000, active: true)
+manager = Manager.new(first_name: "James", last_name: "Odegaard", salary: 70000, active: true, employees: [employee1, employee2])
 manager.print_info
 manager.send_email_report
+p manager.employees
