@@ -17,34 +17,15 @@
 
 # class
 class Employee
-  def initialize(input_first_name, input_last_name, input_salary, input_active)
-    # instance variables
-    @first_name = input_first_name
-    @last_name = input_last_name
-    @salary = input_salary
-    @active = input_active
-  end
-
-  # getter/reader (instance method)
-  def first_name
-    @first_name
-  end
+  attr_reader :first_name, :last_name, :salary, :active
+  attr_writer :first_name, :last_name, :active
   
-  def last_name
-    @last_name
-  end
-
-  def salary
-    @salary
-  end
-
-  def active
-    @active
-  end
-
-  # setter/writer (instance methods)
-  def active=(input_active)
-    @active = input_active
+  def initialize(input_options)
+    # instance variables
+    @first_name = input_options[:first_name]
+    @last_name = input_options[:last_name]
+    @salary = input_options[:salary]
+    @active = input_options[:active]
   end
 
   # instance method
@@ -57,8 +38,8 @@ class Employee
   end
 end
 
-employee1 = Employee.new("Jay", "Wengrow", 150000, true)
-employee2 = Employee.new("Dani", "Zaghian", 40000, true)
+employee1 = Employee.new({last_name: "Wengrow", salary: 150000, active: true, first_name: "Jay"})
+employee2 = Employee.new(first_name: "Dani", last_name: "Zaghian", salary: 40000, active: true)
 employee1.print_info
 employee2.print_info
 puts employee2.give_annual_raise
