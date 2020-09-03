@@ -38,13 +38,4 @@ class Employee
   end
 end
 
-employee1 = Employee.new({last_name: "Wengrow", salary: 150000, active: true, first_name: "Jay"})
-employee2 = Employee.new(first_name: "Dani", last_name: "Zaghian", salary: 40000, active: true)
-employee1.print_info
-employee2.print_info
-puts employee2.give_annual_raise
-puts employee2.first_name
-employee1.active = false
-puts employee1.active
-
 
