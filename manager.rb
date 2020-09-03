@@ -38,11 +38,18 @@ class Manager < Employee
       p employee.give_annual_raise
     end
   end
+
+  def fire_all_employees
+    employees.each do |employee|
+      p employee.active = false
+    end
+  end
 end
 employee1 = Employee.new({last_name: "Wengrow", salary: 150000, active: true, first_name: "Jay"})
 employee2 = Employee.new(first_name: "Dani", last_name: "Zaghian", salary: 40000, active: true)
 
 manager = Manager.new(first_name: "James", last_name: "Odegaard", salary: 70000, active: true, employees: [employee1, employee2])
-manager.print_info
-manager.send_email_report
-manager.give_all_raises
+# manager.print_info
+# manager.send_email_report
+# manager.give_all_raises
+manager.fire_all_employees
